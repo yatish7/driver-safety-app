@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 8
+names: ['drinking', 'hair and makeup', 'operating the radio', 'reaching behind', 'safe driving', 'talking on the phone', 'talking to passenger', 'texting']
+
+roboflow:
+  workspace: new-workspace-vrhvx
+  project: distracted-driver-detection
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/new-workspace-vrhvx/distracted-driver-detection/dataset/3

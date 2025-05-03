@@ -6,27 +6,27 @@ import { Button } from "react-native-paper";
 const LoginScreen = ({ navigation, setIsLoggedIn }) => {
   const [userData, setUserData] = useState({ email: "", password: "" });
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch("http://192.168.31.190:9000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData),
-      });
-      const data = await response.json();
+    const handleLogin = async () => {
+      try {
+        const response = await fetch("http://192.168.31.198:9000/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userData),
+        });
+        const data = await response.json();
 
-      if (response.ok) {
-        await AsyncStorage.setItem("token", data.token);
-        await AsyncStorage.setItem("user", JSON.stringify({ email: userData.email }));
-        setIsLoggedIn(true); // Update login state
-      } else {
-        Alert.alert("Error", data.error || "Invalid credentials.");
+        if (response.ok) {
+          await AsyncStorage.setItem("token", data.token);
+          await AsyncStorage.setItem("user", JSON.stringify({ email: userData.email }));
+          setIsLoggedIn(true); // Update login state
+        } else {
+          Alert.alert("Error", data.error || "Invalid credentials.");
+        }
+      } catch (err) {
+        console.log(err);
+        Alert.alert("Error", "Something went wrong.");
       }
-    } catch (err) {
-      console.log(err);
-      Alert.alert("Error", "Something went wrong.");
-    }
-  };
+    };
 
   return (
     <View style={styles.container}>

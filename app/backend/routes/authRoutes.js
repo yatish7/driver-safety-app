@@ -27,6 +27,7 @@ router.post('/signup', asyncHandler(async (req, res) => {
 
 // Login endpoint
 router.post('/login', asyncHandler(async (req, res) => {
+  console.log("📩 Login request received:", req.body);
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });

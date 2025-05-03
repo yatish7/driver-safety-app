@@ -8,7 +8,7 @@ const SignupScreen = ({ navigation, setIsLoggedIn }) => {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch("http://192.168.31.190:9000/api/auth/signup", {
+      const response = await fetch("http://192.168.31.198:9000/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),

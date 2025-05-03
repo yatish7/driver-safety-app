@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button, Card, Avatar } from "react-native-paper";
-import SignupScreen from "./SignupScreen";
 
-const ProfileScreen = ({ navigation }) => {
+const ProfileScreen = ({ navigation, setIsLoggedIn }) => {
   const [userData, setUserData] = useState({ username: "", email: "" });
 
   useEffect(() => {
@@ -22,16 +21,21 @@ const ProfileScreen = ({ navigation }) => {
     await AsyncStorage.removeItem("user");
     await AsyncStorage.removeItem("token");
 
-    // Navigate to Signup screen
-    navigation.replace("SignupScreen");
+    // Update isLoggedIn state & navigate to Signup screen
+    setIsLoggedIn(false);
   };
 
   return (
     <View style={styles.container}>
       <Card style={styles.profileCard}>
-        <Avatar.Image size={100} source={{ uri: "https://i.pravatar.cc/300" }} style={styles.avatar} />
+        <Avatar.Image 
+          size={100} 
+          source={{ uri: "https://i.pravatar.cc/300" }} 
+          style={styles.avatar} 
+        />
         <Text style={styles.username}>{userData.username || "Guest User"}</Text>
-        <Text style={styles.email}>{userData.email}</Text>
+        <Text style={styles.email}>{userData.email || "No Email Available"}</Text>
+
         <Button mode="contained" onPress={handleLogout} style={styles.logoutButton}>
           Logout
         </Button>
@@ -50,29 +54,38 @@ const styles = StyleSheet.create({
   profileCard: {
     width: "90%",
     alignItems: "center",
-    padding: 20,
+    padding: 25,
     borderRadius: 15,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     elevation: 5,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
   },
   avatar: {
     marginBottom: 15,
+    borderWidth: 2,
+    borderColor: "#007bff",
   },
   username: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: "bold",
     color: "#333",
     marginBottom: 5,
+    textAlign: "center",
   },
   email: {
     fontSize: 16,
     color: "#666",
     marginBottom: 20,
+    textAlign: "center",
   },
   logoutButton: {
-    width: "80%",
+    width: "85%",
     borderRadius: 10,
     backgroundColor: "#e74c3c",
+    paddingVertical: 8,
   },
 });
 
