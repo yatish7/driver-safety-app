@@ -57,17 +57,20 @@ Alerts & Logging:
 Triggers alerts for unsafe patterns and logs risk scores for trip reviews.
 Insights Dashboard:
 Visual graphs showing daily scores, emotion trends, and behavior heatmaps.
+
 🎯 Use Cases
 Personal Safety: Helps users recognize fatigue or distraction early.
 Fleet Monitoring: Can be scaled for logistics or cab fleets to track driver fitness.
 Insurance Integration: Real-time driver scoring for usage-based insurance models.
 Smart Mobility Research: Great for ML research or hackathons around real-time vision.
+
 🔧 Customization & Extensions
 📊 Add new detections: fatigue from posture, yawning, unsafe eye closure patterns
 🌐 Cloud sync: Enable enterprise dashboard or analytics
 🔔 Push alerts: Coach drivers with weekly summaries or urgent warnings
 📱 Multi-driver support: Track individual profiles for shared vehicles
 ✅ Roadmap
+
 Gemini AI expansion for deeper contextual learning
 Add offline mode + edge deployment for embedded systems
 Real-time crash detection and SOS
@@ -76,8 +79,7 @@ Fleet dashboard with real-time alerts
 👤 Contributors & Credit
 Yatish Manne – AI pipeline, app architecture, mobile dashboard, Gemini fusion
 Open-source libraries: Ultralytics YOLOv8, FER2013, Flask, React Native, Victory Charts
-📄 License
-MIT License — Use, share, or modify freely for personal or commercial projects.
+
 📞 Contact
 Email: yatish.manne09@gamil.com
 LinkedIn: [linkedin.com/in/yatishmanne](https://www.linkedin.com/in/yatish-manne-ab2836254/)
